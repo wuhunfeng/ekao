@@ -193,7 +193,7 @@ const isDev = import.meta.env.DEV;
               ></span>
             </button>
 
-
+            <darkMode="isDarkMode" />
             <button
               type="button"
               @click="toggleThemeMode"
@@ -232,7 +232,7 @@ const isDev = import.meta.env.DEV;
               ></span>
             </button>
 
-            <LanguageSwitcher :darkMode="isDarkMode" class="mr-2" />
+            <darkMode="isDarkMode" class="mr-2" />
 
             <button
               type="button"

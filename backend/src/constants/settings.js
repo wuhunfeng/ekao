@@ -255,7 +255,7 @@ export const DEFAULT_SETTINGS = {
     options: null,
     sort_order: 1,
     flag: SETTING_FLAGS.PUBLIC,
-    default_value: "CloudPaste",
+    default_value: "家校共享服务平台",
   },
 
   site_favicon_url: {
@@ -299,7 +299,7 @@ export const DEFAULT_SETTINGS = {
     options: null,
     sort_order: 5,
     flag: SETTING_FLAGS.PUBLIC,
-    default_value: "© 2025 CloudPaste. 保留所有权利。",
+    default_value: "© 2025 家校共享服务平台. 保留所有权利。",
   },
 
   site_custom_head: {

@@ -145,31 +145,9 @@ const isDev = import.meta.env.DEV;
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <h1 class="text-xl font-bold">{{ $t("app.title") }}</h1>
+              <h1 class="text-xl font-bold">家校共享服务平台</h1>
             </div>
             <nav class="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <router-link
-                to="/"
-                v-if="canShowHomeEntry"
-                :class="[
-                  activePage === 'home' ? 'border-primary-500 text-current' : 'border-transparent hover:border-gray-300',
-                  'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200',
-                  activePage !== 'home' && isDarkMode ? 'text-gray-300 hover:text-gray-100' : activePage !== 'home' ? 'text-gray-500 hover:text-gray-700' : '',
-                ]"
-              >
-                {{ $t("nav.home") }}
-              </router-link>
-              <router-link
-                to="/upload"
-                v-if="canShowUploadEntry"
-                :class="[
-                  activePage === 'upload' ? 'border-primary-500 text-current' : 'border-transparent hover:border-gray-300',
-                  'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200',
-                  activePage !== 'upload' && isDarkMode ? 'text-gray-300 hover:text-gray-100' : activePage !== 'upload' ? 'text-gray-500 hover:text-gray-700' : '',
-                ]"
-              >
-                {{ $t("nav.upload") }}
-              </router-link>
               <router-link
                 to="/mount-explorer"
                 v-if="canShowMountEntry"
@@ -194,19 +172,6 @@ const isDev = import.meta.env.DEV;
             </nav>
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-2">
-            <a
-              :href="githubUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              :class="[
-                'p-2 rounded-full focus:outline-none transition-colors',
-                isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-700' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100',
-              ]"
-              aria-label="GitHub"
-              title="GitHub"
-            >
-              <IconGithub size="md" aria-hidden="true" />
-            </a>
 
             <button
               v-if="canShowAnnouncementEntry"
@@ -228,7 +193,6 @@ const isDev = import.meta.env.DEV;
               ></span>
             </button>
 
-            <LanguageSwitcher :darkMode="isDarkMode" />
 
             <button
               type="button"
@@ -247,19 +211,6 @@ const isDev = import.meta.env.DEV;
 
           <!-- 移动端菜单按钮 -->
           <div class="flex items-center sm:hidden">
-            <a
-              :href="githubUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              :class="[
-                'p-2 rounded-full focus:outline-none transition-colors mr-2',
-                isDarkMode ? 'text-gray-300 hover:text-white hover:bg-gray-700' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100',
-              ]"
-              aria-label="GitHub"
-              title="GitHub"
-            >
-              <IconGithub size="md" aria-hidden="true" />
-            </a>
 
             <button
               v-if="canShowAnnouncementEntry"

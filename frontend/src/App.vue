@@ -37,8 +37,8 @@ const activePage = computed(() => {
 
 // 前台入口开关（站点设置）
 // - store 未初始化前，先按“都显示”处理，避免把用户锁死在空白页面
-const canShowHomeEntry = computed(() => !siteConfigStore.isInitialized || siteConfigStore.siteHomeEditorEnabled);
-const canShowUploadEntry = computed(() => !siteConfigStore.isInitialized || siteConfigStore.siteUploadPageEnabled);
+// const canShowHomeEntry = computed(() => !siteConfigStore.isInitialized || siteConfigStore.siteHomeEditorEnabled);
+// const canShowUploadEntry = computed(() => !siteConfigStore.isInitialized || siteConfigStore.siteUploadPageEnabled);
 const canShowMountEntry = computed(() => !siteConfigStore.isInitialized || siteConfigStore.siteMountExplorerEnabled);
 
 // 公告入口（全站）：只有“启用 + 有内容”才显示
@@ -71,7 +71,7 @@ const isMobileMenuOpen = ref(false);
 const showEnvSwitcher = ref(false);
 
 // GitHub 链接
-const githubUrl = "https://github.com/ling-drag0n/CloudPaste";
+// const githubUrl = "https://github.com/ling-drag0n/CloudPaste";
 
 // 检查是否为开发环境
 const isDev = import.meta.env.DEV;

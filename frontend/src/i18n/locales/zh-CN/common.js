@@ -94,7 +94,7 @@ export default {
     },
   },
   app: {
-    title: "CloudPaste",
+    title: "家校共享服务平台",
   },
   pageTitle: {
     // 主页面子标题（用于动态组合）

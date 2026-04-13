@@ -342,9 +342,9 @@ export default defineConfig(({ command, mode }) => {
         },
         includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt", "dist/**/*"],
         manifest: {
-          name: "CloudPaste",
-          short_name: "CloudPaste",
-          description: "安全分享您的内容，支持 Markdown 编辑和文件上传",
+          name: "家校共享服务平台",
+          short_name: "家校共享服务平台",
+          description: "见证孩子成长历程",
           theme_color: "#0ea5e9",
           background_color: "#ffffff",
           display: "standalone",

@@ -34,7 +34,7 @@ export default {
       installable: "可安装",
       installing: "安装中",
       installApp: "安装应用",
-      installPrompt: "将 CloudPaste 添加到主屏幕，获得更好的使用体验",
+      installPrompt: "将 家校共享服务平台 添加到主屏幕，见证孩子成长历程",
     },
 
     // Service Worker 状态

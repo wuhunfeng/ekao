@@ -145,7 +145,7 @@ const isDev = import.meta.env.DEV;
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <h1 class="text-xl font-bold">{{ siteConfigStore.siteTitle || $t("app.title") }}</h1>
+              <h1 class="text-xl font-bold">{{ $t("app.title") }}</h1>
             </div>
             <nav class="hidden sm:ml-6 sm:flex sm:space-x-8">
               <router-link

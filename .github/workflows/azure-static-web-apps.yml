@@ -10,34 +10,58 @@ on:
       - main
 
 jobs:
-  build_and_deploy_job:
+  # ==========================================
+  # 任务 1: 部署前端 (仅当 frontend 目录变动时)
+  # ==========================================
+  build_and_deploy_frontend:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build and Deploy Frontend
+    # 关键：这里检查 frontend 目录是否有文件变动
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
-      - name: Build And Deploy
-        id: builddeploy
+      - name: Build And Deploy Frontend
+        id: builddeploy_fe
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          ###### Repository/Build Configurations ######
-          # ✅ 关键修改：指定前端代码所在的子目录
           app_location: "frontend" 
-          
-          # API 代码位置（如果没有独立的后端 API 代码在此仓库，保持留空）
           api_location: "" 
-          
-          # ✅ 关键修改：构建输出目录（相对于 app_location）
-          # 通常 Vite/Vue/React 项目构建后生成 dist 文件夹
           output_location: "dist" 
-          ###### End of Repository/Build Configurations ######
 
+  # ==========================================
+  # 任务 2: 部署后端 (仅当 backend 目录变动时)
+  # ==========================================
+  build_and_deploy_backend:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Backend
+    # 关键：这里检查 backend 目录是否有文件变动
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
+      - name: Build And Deploy Backend
+        id: builddeploy_be
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          # 后端配置
+          app_location: "backend"   # 后端源代码目录
+          api_location: ""          # 如果有独立的 api 目录可填写，否则留空
+          output_location: ""       # 如果是纯 Node.js 后端，这里通常留空或填 .
+
+  # ==========================================
+  # 任务 3: 清理 PR (合并了两个任务的逻辑)
+  # ==========================================
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest

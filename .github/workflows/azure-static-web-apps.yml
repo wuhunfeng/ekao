@@ -27,9 +27,15 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "/" 
+          # ✅ 关键修改：指定前端代码所在的子目录
+          app_location: "frontend" 
+          
+          # API 代码位置（如果没有独立的后端 API 代码在此仓库，保持留空）
           api_location: "" 
-          output_location: "dist" # ✅ 强制指定输出目录为 dist
+          
+          # ✅ 关键修改：构建输出目录（相对于 app_location）
+          # 通常 Vite/Vue/React 项目构建后生成 dist 文件夹
+          output_location: "dist" 
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:

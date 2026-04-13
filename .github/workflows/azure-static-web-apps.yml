@@ -24,28 +24,19 @@ jobs:
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          # 🔑 密钥配置：
-          # 请确保你在 GitHub 仓库的 Settings -> Secrets and variables -> Actions 中
-          # 添加了名为 AZURE_STATIC_WEB_APPS_API_TOKEN 的密钥
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          
           repo_token: ${{ secrets.GITHUB_TOKEN }} 
           action: "upload"
           
-          ###### 仓库/构建配置 ######
-          # 📂 应用位置：
-          # 如果你的前端代码（package.json, vite.config.ts）在根目录，这里填 "/"
-          # 如果在一个名为 'frontend' 的文件夹里，请改为 "/frontend"
-          app_location: "/"             
+          ###### 关键配置修改处 ######
+          # ✅ 这里必须指向包含 package.json 的子目录
+          # 注意：不要加斜杠结尾，也不要写成 /frontend/
+          app_location: "/frontend"             
           
-          # ⚡ API 位置：
-          # 重要：因为你的后端在 Cloudflare Workers，这里必须留空！
-          # 如果填了 api_location，Azure 会尝试构建 Node.js 函数，这会导致错误。
+          # ✅ API 位置留空，因为你的后端在 Cloudflare
           api_location: ""             
           
-          # 📦 输出位置：
-          # CloudPaste 使用 Vite 构建，默认输出目录通常是 "dist"。
-          # 如果你的项目配置了输出到 "build" 或其他目录，请在此修改。
+          # ✅ 输出位置通常是 dist (相对于 app_location)
           output_location: "dist"      
           ###### 结束配置 ######
 

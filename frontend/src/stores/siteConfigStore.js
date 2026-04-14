@@ -93,15 +93,15 @@ export const useSiteConfigStore = defineStore("siteConfig", () => {
   // ===== 状态定义 =====
 
   // 站点配置
-  const siteTitle = ref("CloudPaste"); // 默认站点标题
+  const siteTitle = ref("家校共享服务平台"); // 默认站点标题
   const siteFaviconUrl = ref(""); // 站点图标URL
-  const siteFooterMarkdown = ref("© 2025 CloudPaste. 保留所有权利。"); // 页脚Markdown内容
+  const siteFooterMarkdown = ref("© 2025 家校共享服务平台. 保留所有权利。"); // 页脚Markdown内容
   const siteCustomHead = ref(""); // 自定义头部
   const siteCustomBody = ref(""); // 自定义body
 
   // 前台页面入口开关
-  const siteHomeEditorEnabled = ref(true);
-  const siteUploadPageEnabled = ref(true);
+  // const siteHomeEditorEnabled = ref(true);
+  // const siteUploadPageEnabled = ref(true);
   const siteMountExplorerEnabled = ref(true);
 
   // 公告

@@ -100,8 +100,8 @@ export const useSiteConfigStore = defineStore("siteConfig", () => {
   const siteCustomBody = ref(""); // 自定义body
 
   // 前台页面入口开关
-  // const siteHomeEditorEnabled = ref(true);
-  // const siteUploadPageEnabled = ref(true);
+  const siteHomeEditorEnabled = ref(true);
+  const siteUploadPageEnabled = ref(true);
   const siteMountExplorerEnabled = ref(true);
 
   // 公告

@@ -277,40 +277,6 @@ const isDev = import.meta.env.DEV;
       <div class="sm:hidden overflow-hidden transition-all duration-300 ease-in-out" :class="[isMobileMenuOpen ? 'max-h-80' : 'max-h-0']">
         <div :class="['py-3 border-t transition-colors', isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200']">
           <router-link
-            to="/"
-            @click="isMobileMenuOpen = false"
-            v-if="canShowHomeEntry"
-            :class="[
-              'flex items-center px-4 py-3 transition-colors duration-200',
-              activePage === 'home'
-                ? isDarkMode
-                  ? 'bg-gray-700 text-white'
-                  : 'bg-gray-100 text-gray-900'
-                : isDarkMode
-                ? 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-            ]"
-          >
-            <span class="ml-2">{{ $t("nav.home") }}</span>
-          </router-link>
-          <router-link
-            to="/upload"
-            @click="isMobileMenuOpen = false"
-            v-if="canShowUploadEntry"
-            :class="[
-              'flex items-center px-4 py-3 transition-colors duration-200',
-              activePage === 'upload'
-                ? isDarkMode
-                  ? 'bg-gray-700 text-white'
-                  : 'bg-gray-100 text-gray-900'
-                : isDarkMode
-                ? 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-            ]"
-          >
-            <span class="ml-2">{{ $t("nav.upload") }}</span>
-          </router-link>
-          <router-link
             to="/mount-explorer"
             @click="isMobileMenuOpen = false"
             v-if="canShowMountEntry"
